@@ -1,0 +1,19 @@
+{
+  "name": "p5react",
+  "version": "1.0.0",
+  "description": "basicp5",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonathanLongden/p5react.git"
+  },
+  "author": "Jonathan E. Longden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonathanLongden/p5react/issues"
+  },
+  "homepage": "https://github.com/JonathanLongden/p5react#readme"
+}

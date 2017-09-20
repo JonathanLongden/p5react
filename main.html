@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Shapes - Static Car</title>
+  </head>
+  <body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+  </body>
+
+  <script type="text/javascript">
+    /* 1. Create a canvas
+     * 2. Craw a street for the car to drive on
+     * 3. Draw a car (2D)
+     *
+     */
+    var img;
+
+    //function preload(){
+    //    img = load("caturday.jpg");
+    // }
+    function setup() {
+        
+        createCanvas(1000,1000)
+        background(255,204,0);
+        //img = load("caturday.jpg");
+        //img(img,0,0)
+    }
+    function draw() {
+        if(mouseIsPressed)
+        {
+            fill(255,204,100)
+        }else{
+            fill(0,255,0)
+        }
+        ellipse(mouseX,mouseY,80,80)
+    }
+  </script>
+</html>
