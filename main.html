@@ -15,115 +15,135 @@
 
 
     <script type="text/javascript">
-        /* 1. Create a canvas
-         * 2. Craw a street for the car to drive on
-         * 3. Draw a car (2D)
-         *
-         */
-        var img;
+        var value = 0;
+        var car = 0;
 
-        //function preload(){
-        //    img = load("caturday.jpg");
-        // }
         function setup() {
 
-            createCanvas(500, 400)
-            background(0, 255, 255);
-            //img = load("caturday.jpg");
-            //img(img,0,0)
-        }
-        var y = 300;
-        var ybody = y - 40;
-        var yhighway = y + 10
-        var ydirt = yhighway + 20
-        var ycab = ybody - 20;
+            createCanvas(500, 400);
 
-        var x = 200;
-        var xfrontwheel = x + 15;
-        var xbackwheel = x + 65;
-        var xcab = x + 35;
+
+        };
+        var y = 0;
+
+        var x = 0;
+
 
         function draw() {
+            if (x < 285) {
+                x = x + 5;
+            } else {
+                x = -250;
+            }
+            background('#18BCF7');
 
-            //x,y,w,h
-            //cab
-            fill('blue');
-            rect(xcab, ycab, 30, 30);
-            //cab window
-            fill('gray');
-            rect(xcab + 5, ycab + 5, 20, 20);
-            //cab body
-            fill('blue');
-            rect(x, ybody, 80, 30);
 
-            //x,y,w,h
-            //outerwheel
-            fill('black');
-            ellipse(xfrontwheel, y, 20, 20);
-            ellipse(xbackwheel, y, 20, 20);
-            //inner wheel
-            fill('grey');
-            ellipse(xfrontwheel, y, 15, 15);
-            ellipse(xbackwheel, y, 15, 15);
-            //Hub Cap wheel
-            fill('black');
-            ellipse(xfrontwheel, y, 5, 5);
-            ellipse(xbackwheel, y, 5, 5);
 
+            //car
+            CreateTruck(x);
 
             //x,y,w,h
             //highway
             fill(88, 72, 5);
-            rect(0, yhighway, 500, 20);
+            rect(0, 310, 500, 20);
             fill(205, 133, 63);
-            rect(0, ydirt, 500, 70);
+            rect(0, 330, 500, 70);
 
             //sun
             fill('yellow');
             ellipse(500, 0, 250, 250);
-            //Sun Rays
-            stroke('yellow');
-            //x1,y1,x2,y2
-            line(500, 0, 300, 50);
-            line(500, 0, 300, 100);
-            line(500, 0, 300, 150);
-            line(500, 0, 300, 200);
 
-            line(500, 0, 325, 50);
-            line(500, 0, 325, 100);
-            line(500, 0, 325, 150);
-            line(500, 0, 325, 200);
-
-            line(500, 0, 350, 50);
-            line(500, 0, 350, 100);
-            line(500, 0, 350, 150);
-            line(500, 0, 350, 200);
-
-            line(500, 0, 375, 50);
-            line(500, 0, 375, 100);
-            line(500, 0, 375, 150);
-            line(500, 0, 375, 200);
-
-            line(500, 0, 400, 50);
-            line(500, 0, 400, 100);
-            line(500, 0, 400, 150);
-            line(500, 0, 400, 200);
-
-            line(500, 0, 425, 50);
-            line(500, 0, 425, 100);
-            line(500, 0, 425, 150);
-            line(500, 0, 425, 200);
-
-            line(500, 0, 450, 50);
-            line(500, 0, 450, 100);
-            line(500, 0, 450, 150);
-            line(500, 0, 450, 200);
-
-
-
+            CreateSunlines(x - 300);
+            CreateSunlines(x - 275);
+            CreateSunlines(x - 250);
+            CreateSunlines(x - 225);
+            CreateSunlines(x - 200);
+            CreateSunlines(x - 175);
+            CreateSunlines(x - 150);
+            CreateSunlines(x - 125);
+            CreateSunlines(x - 100);
+            CreateSunlines(x - 75);
+            CreateSunlines(x - 50);
+            CreateSunlines(x - 25);
+            CreateSunlines(x);
+            CreateSunlines(x + 25);
+            CreateSunlines(x + 50);
+            CreateSunlines(x + 75);
+            CreateSunlines(x + 100);
+            CreateSunlines(x + 125);
+            CreateSunlines(x + 150);
+            CreateSunlines(x + 175);
+            CreateSunlines(x + 200);
+            CreateSunlines(x + 225);
+            CreateSunlines(x + 250);
+            CreateSunlines(x + 275);
+            CreateSunlines(x + 300);
+            CreateSunlines(x + 325);
+            CreateSunlines(x + 350);
+            CreateSunlines(x + 375);
+            CreateSunlines(x + 400);
+            CreateSunlines(x + 425);
+            CreateSunlines(x + 450);
+            CreateSunlines(x + 475);
             //keeps Rest of the Lines Black
             stroke('black');
 
+            // fill(value);
+            // rect(25, 25, 50, 50);
+
+            //bird
+            //x y w h
+            fill('orange');
+            //body
+            ellipse(350, 350, 30, 15);
+            //head
+            ellipse(365, 350, 15, 15);
+            fill('black');
+            //eye
+            ellipse(366, 350, 3, 3);
+
+        }
+
+        // function keyPressed() {
+        //     if (keyCode === LEFT_ARROW) {
+        //         value = 255;
+        //     } else if (keyCode === RIGHT_ARROW) {
+        //         value = 0;
+        //     }
+        // }
+
+        function CreateSunlines(x) {
+            //Sun Rays
+            stroke('yellow');
+            //x1,y1,x2,y2
+            line(500, 0, 300 + x, 50 + x);
+        }
+
+        function CreateTruck(x) {
+            //x,y,w,h
+            //cab
+            fill('blue');
+            rect(235 + x, 240, 30, 30);
+            //cab window
+            fill('gray');
+            rect(245 + x, 245, 20, 20);
+            //cab body
+            fill('blue');
+            rect(200 + x, 260, 80, 30);
+
+            //x,y,w,h
+            //outerwheel
+            fill('black');
+            ellipse(215 + x, 300, 20, 20);
+            ellipse(265 + x, 300, 20, 20);
+            //inner wheel
+            fill('grey');
+            ellipse(215 + x, 300, 15, 15);
+            ellipse(265 + x, 300, 15, 15);
+            //Hub Cap wheel
+            fill('black');
+            ellipse(215 + x, 300, 5, 5);
+            ellipse(265 + x, 300, 5, 5);
         }
     </script>
 </div>
